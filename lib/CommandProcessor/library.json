@@ -1,0 +1,44 @@
+{
+    "name": "CommandProcessor",
+    "version": "1.8.9",
+    "description": "Command Processor for ESP32 Soil Monitoring System",
+    "keywords": "command, processor, esp32, serial",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zelas2xerath/esp32-soil-monitor.git"
+    },
+    "authors": [
+        {
+            "name": "Zelas2Xerath",
+            "email": "leancode@189.cn",
+            "maintainer": true
+        }
+    ],
+    "license": "MIT",
+    "frameworks": "arduino",
+    "platforms": "espressif32",
+    "dependencies": [
+        {
+            "name": "LogManager"
+        },
+        {
+            "name": "ControlManager"
+        },
+        {
+            "name": "SystemManager"
+        },
+        {
+            "name": "WiFi",
+            "version": "*"
+        },
+        {
+            "name": "Preferences",
+            "version": "*"
+        },
+        {
+            "owner": "bblanchon",
+            "name": "ArduinoJson",
+            "version": "^6.21.3"
+        }
+    ]
+} 

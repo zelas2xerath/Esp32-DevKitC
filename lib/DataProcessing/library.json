@@ -1,0 +1,30 @@
+{
+  "name": "DataProcessing",
+  "version": "2.0.0",
+  "description": "简化的传感器数据滤波器库 - 提供核心的移动平均和异常值检测功能",
+  "keywords": [
+    "sensor",
+    "filter",
+    "data processing",
+    "moving average",
+    "outlier detection",
+    "ESP32"
+  ],
+  "authors": [
+    {
+      "name": "Zelas2Xerath",
+      "email": "leancode@189.cn"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/esp32-sensors/management-system.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/esp32-sensors/management-system",
+  "frameworks": ["arduino"],
+  "platforms": ["espressif32"],
+  "dependencies": {
+    "name": "LogManager"
+  }
+}

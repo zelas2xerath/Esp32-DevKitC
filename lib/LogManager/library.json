@@ -1,0 +1,27 @@
+{
+    "name": "LogManager",
+    "version": "1.8.9",
+    "description": "Log Manager for ESP32 Soil Monitoring System",
+    "keywords": "log, manager, esp32, logging",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zelas2xerath/esp32-soil-monitor.git"
+    },
+    "authors": [
+        {
+            "name": "Zelas2Xerath",
+            "email": "leancode@189.cn",
+            "maintainer": true
+        }
+    ],
+    "license": "MIT",
+    "frameworks": "arduino",
+    "platforms": "espressif32",
+    "dependencies": [
+        {
+            "owner": "thijse",
+            "name": "ArduinoLog",
+            "version": "^1.1.1"
+        }
+    ]
+} 

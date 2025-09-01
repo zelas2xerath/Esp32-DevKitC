@@ -1,0 +1,32 @@
+{
+    "name": "RTOSManager",
+    "version": "2.1.3",
+    "description": "FreeRTOS Task Manager for ESP32 Soil Monitoring System",
+    "keywords": "rtos, freertos, task, queue, semaphore, esp32",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zelas2xerath/esp32-soil-monitor.git"
+    },
+    "authors": [
+        {
+            "name": "Zelas2Xerath",
+            "email": "leancode@189.cn",
+            "maintainer": true
+        }
+    ],
+    "license": "MIT",
+    "frameworks": "arduino",
+    "platforms": "espressif32",
+    "dependencies": [
+        {
+            "name": "LogManager"
+        },
+        {
+            "name": "SystemManager"
+        },
+        {
+            "name": "freertos",
+            "version": "*"
+        }
+    ]
+}

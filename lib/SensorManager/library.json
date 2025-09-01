@@ -1,0 +1,35 @@
+{
+    "name": "SensorManager",
+    "version": "1.8.9",
+    "description": "Sensor Manager for ESP32 Soil Monitoring System",
+    "keywords": "sensor, manager, esp32, soil, monitoring",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/zelas2xerath/esp32-soil-monitor.git"
+    },
+    "authors": [
+        {
+            "name": "Zelas2Xerath",
+            "email": "leancode@189.cn",
+            "maintainer": true
+        }
+    ],
+    "license": "MIT",
+    "frameworks": "arduino",
+    "platforms": "espressif32",
+    "dependencies": [
+        {
+            "name": "LogManager"
+        },
+        {
+            "owner": "claws",
+            "name": "BH1750",
+            "version": "^1.3.0"
+        },
+        {
+            "owner": "adafruit",
+            "name": "Adafruit BME280 Library",
+            "version": "^2.3.0"
+        }
+    ]
+} 
