@@ -1,4 +1,4 @@
-# ESP-32智能农业监测系统 🌱
+# ESP-32 智能物联网农业灌溉与监测系统 🌱
 
 [![构建状态](https://img.shields.io/badge/构建-成功-brightgreen.svg)](https://github.com/your-repo/esp32-agriculture)
 [![版本](https://img.shields.io/badge/版本-v9.0.0-blue.svg)](https://github.com/your-repo/esp32-agriculture/releases)
@@ -7,7 +7,7 @@
 
 ## 📋 项目概述
 
-ESP-32智能传感器管理系统是一个基于ESP32微控制器的多传感器数据采集、处理和管理平台。经过九个阶段的迭代优化，系统具备完整的传感器管理、数据滤波、智能光照分析和远程监控能力，适用于智能农业、智能家居、工业监控等多种应用场景。
+ESP-32 智能物联网农业灌溉与监测系统是一个基于 ESP-WROOM-32 微控制器的多传感器数据采集、处理和管理平台。经过九个阶段的迭代优化，系统具备完整的传感器管理、数据滤波、智能光照分析和远程监控能力，适用于智能农业、智能家居、工业监控等多种应用场景。
 
 ### 🌟 主要特性
 
@@ -70,7 +70,7 @@ MQTT命令 ← agriculture/{device_id}/command/{type}
 ## 🛠️ 硬件要求
 
 ### 主控制器
-- **ESP32 DevKit C** - 主控制器
+- **ESP32 DevKit-C** - 主控制器
 - **内存**: 最少320KB RAM, 4MB Flash
 - **WiFi**: 2.4GHz 802.11 b/g/n
 
@@ -114,20 +114,6 @@ ESP-32-DevKitC/
 └── README.md             # 项目说明文档
 ```
 
-### 🔄 模块架构更新 (v2.0)
-
-**MSP20水深传感器模块重构：**
-- 📁 **新位置**: `include/MSP20/` (从 `lib/SensorManager/` 迁移)
-- 🔧 **优化内容**: 完全重构的API设计，支持多种测量模式
-- 📝 **代码质量**: MSP20.cpp控制在300行以内，添加完整中文注释
-- ⚡ **性能提升**: 优化的采样算法和异常值检测机制
-
-**WDS水深管理模块增强：**
-- 🧠 **智能分析**: 新增洪水检测、干旱预警、趋势分析功能
-- 📊 **数据处理**: 改进的历史数据管理和统计分析
-- 🔒 **错误处理**: 完善的错误检测和恢复机制
-- 📝 **代码优化**: WDS.cpp控制在400行以内，提升可维护性
-
 ## 📦 安装指南
 
 ### 环境准备
@@ -143,7 +129,7 @@ ESP-32-DevKitC/
 
 2. **克隆项目**
    ```bash
-   git clone https://github.com/your-repo/esp32-agriculture.git
+   git clone https://github.com/zelas2xerath/esp32-agriculture.git
    cd esp32-agriculture
    ```
 
@@ -172,50 +158,6 @@ ESP-32-DevKitC/
 ### 程序文件说明
 
 - **主程序**: `src/main.cpp` - ESP32 RTOS多任务主程序
-- **测试程序**: `test/test_rtos_functionality.cpp` - 功能验证测试程序
-- **MQTT测试**: `test/test_mqtt_rtos_integration.cpp` - MQTT集成测试
-
-### 切换测试模式
-
-#### RTOS功能测试：
-```bash
-# 备份主程序
-mv src/main.cpp src/main_backup.cpp
-
-# 使用RTOS测试程序
-cp test/test_rtos_functionality.cpp src/main.cpp
-
-# 编译运行测试
-pio run --target upload
-
-# 恢复主程序
-mv src/main_backup.cpp src/main.cpp
-```
-
-#### MQTT重构功能测试：
-```bash
-# 备份主程序
-mv src/main.cpp src/main_backup.cpp
-
-# 使用MQTT测试程序
-cp test/test_mqtt_refactoring.cpp src/main.cpp
-
-# 修改测试程序中的WiFi和MQTT配置
-# 编译运行测试
-pio run --target upload
-
-# 恢复主程序
-mv src/main_backup.cpp src/main.cpp
-```
-
-**MQTT测试功能：**
-- ✅ 自动发布传感器数据到正确主题
-- ✅ 自动发布系统状态信息
-- ✅ 自动发布告警信息
-- ✅ 接收并处理控制命令
-- ✅ 接收并处理系统命令
-- ✅ 接收并处理查询命令
-- ✅ 发送命令执行响应
 
 ### 硬件连接
 
@@ -258,57 +200,6 @@ GND        →  GND
    - 系统会自动检测连接的传感器
    - 根据需要进行传感器校准
    - 设置灌溉阈值参数
-
-### 🌊 WDS水深传感器使用指南 (v2.0)
-
-**基本使用：**
-```cpp
-#include <SensorManager.h>
-
-WDS waterSensor(35);  // 使用GPIO35
-
-void setup() {
-    // 初始化WDS传感器
-    if (waterSensor.begin() == ErrorCode::SUCCESS) {
-        Serial.println("WDS传感器初始化成功");
-
-        // 配置采样参数
-        waterSensor.setSamplingParameters(20, 10);
-
-        // 执行校准（可选）
-        waterSensor.calibrate(0.0, 1.0);  // 零点偏移，比例因子
-    }
-}
-
-void loop() {
-    // 读取水深数据
-    double depthCm = waterSensor.readWaterDepth();
-    double depthM = waterSensor.readWaterDepthMeters();
-
-    // 获取水位等级
-    WaterLevel level = waterSensor.getWaterLevel();
-
-    // 检测洪水和干旱
-    bool flooding = waterSensor.isFlooding();
-    bool drought = waterSensor.isDry();
-
-    // 获取统计数据
-    double avgDepth = waterSensor.getAverageWaterDepth(10);
-    double maxDepth = waterSensor.getMaxWaterDepth(60000);  // 1分钟内最大值
-
-    Serial.printf("水深: %.2fcm, 等级: %d, 洪水: %s, 干旱: %s\n",
-                  depthCm, (int)level, flooding?"是":"否", drought?"是":"否");
-
-    delay(5000);
-}
-```
-
-**高级功能：**
-- 🔍 **智能分析**: 自动洪水检测、干旱预警、水位趋势分析
-- 📊 **历史数据**: 支持最近20次测量的历史数据管理
-- 🎯 **精确测量**: 异常值检测和数据滤波，提高测量稳定性
-- ⚡ **RTOS兼容**: 完全支持FreeRTOS多任务环境
-- 🔧 **错误恢复**: 完善的错误检测和自动恢复机制
 
 ### 日常操作
 
@@ -605,14 +496,6 @@ pio device monitor --baud 115200
 - 💡 [开发指南](docs/开发者指南.md)
 - 📱 [用户手册](docs/用户使用手册.md)
 
-### 文档特色
-
-- **中英文双语支持** - 重点提供中文文档
-- **完整的代码示例** - 每个API都有详细示例
-- **图表丰富** - 包含架构图、连接图、流程图
-- **分层文档** - 适合不同技术水平的用户
-- **实时更新** - 随系统版本同步更新
-
 ## 📄 许可证
 
 本项目采用MIT许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
@@ -636,7 +519,7 @@ pio device monitor --baud 115200
 
 **🌱 让科技助力农业，让智慧点亮田野！**
 
-## 创建系统架构图
+## 系统架构图
 
 ```mermaid
 graph TB
@@ -738,7 +621,7 @@ graph TB
     class F1,F2,F3,F4,F5 hardwareLayer
 ```
 
-## 创建数据流程图
+## 数据流程图
 
 ```mermaid
 flowchart TD

@@ -1,7 +1,6 @@
 # ESP32传感器管理系统文档中心
 
 <div align="center">
-
 ![文档版本](https://img.shields.io/badge/文档版本-v1.0.0-blue?style=for-the-badge)
 ![系统版本](https://img.shields.io/badge/系统版本-v9.0.0-green?style=for-the-badge)
 ![文档状态](https://img.shields.io/badge/文档状态-完整-brightgreen?style=for-the-badge)
@@ -182,6 +181,6 @@
 
 **📚 完整、准确、实用的技术文档，助力您的ESP32传感器管理系统开发之旅**
 
-*最后更新时间: 2025-07-21*
+*最后更新时间: 2025-09-01*
 
 </div>

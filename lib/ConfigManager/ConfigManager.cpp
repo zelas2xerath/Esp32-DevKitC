@@ -15,7 +15,7 @@ const char* ConfigManager::DEFAULT_WIFI_SSID = "";
 const char* ConfigManager::DEFAULT_WIFI_PASSWORD = "";
 const char* ConfigManager::DEFAULT_SERVER_IP = "192.168.1.100";
 const char* ConfigManager::DEFAULT_NTP_SERVER = "ntp1.aliyun.com";
-const char* ConfigManager::AP_SSID = "ESP32_SoilMonitor";
+const char* ConfigManager::AP_SSID = "ESP32_CME";
 const char* ConfigManager::AP_PASSWORD = "12345678";
 
 // MQTT默认配置
