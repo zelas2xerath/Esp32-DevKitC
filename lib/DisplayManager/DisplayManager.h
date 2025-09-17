@@ -128,10 +128,4 @@ private:
     ErrorCode reportError(ErrorCode code, const String& message);
 };
 
-// 注意：DisplayManager对象由SystemManager管理，不在此处声明全局变量
-
-// ==================== 全局显示函数 ====================
-// 注意：全局显示函数已移除，因为DisplayManager现在由SystemManager管理
-// 如需显示文本，请通过SystemManager的getDisplayManager()方法访问
-
 #endif // DISPLAY_MANAGER_H 

@@ -10,16 +10,12 @@
 
 
 // ------------------【硬件配置】------------------
-// 修复：统一I2C传感器配置，使用ESP32双I2C控制器特性
-// I2C0 (Wire): OLED显示屏 (SDA=19, SCL=21) - 在main.cpp中配置
-// I2C1 (Wire1): BME280 + BH1750传感器 (SDA=26, SCL=25) - 避免设备冲突
-
 // BME280环境传感器I2C引脚 (使用I2C1)
 constexpr int BME280_SCL_PIN = 25;
 constexpr int BME280_SDA_PIN = 26;
 // BH1750光照传感器I2C引脚 (使用I2C1，与BME280共享总线)
-constexpr int BH1750_SCL_PIN = 25;  // 修复：与BME280使用相同引脚
-constexpr int BH1750_SDA_PIN = 26;  // 修复：与BME280使用相同引脚
+constexpr int BH1750_SCL_PIN = 25;
+constexpr int BH1750_SDA_PIN = 26;
 // 土壤湿度传感器ADC引脚
 constexpr int soilMoistureSensorAdcPin = 34;
 // 水深传感器ADC引脚
